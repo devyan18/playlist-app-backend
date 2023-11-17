@@ -22,7 +22,7 @@ export const createUserValidations = [
     .notEmpty().withMessage('El campo { username } no debe estar vacio.')
     .isString().withMessage('El campo { username } debe ser un string.')
     .custom(async (value) => {
-      const user = await UserModel.find({ username: value });
+      const user = await UserModel.findOne({ username: value });
 
       if (user) throw new Error('username already in use');
 
