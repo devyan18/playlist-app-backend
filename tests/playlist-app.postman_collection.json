@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "be9305bf-369c-47e4-9e8d-90e1ce26cf1c",
+		"name": "playlist-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16730895"
+	},
+	"item": [
+		{
+			"name": "playlist",
+			"item": [
+				{
+					"name": "Create Playlist",
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{myToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"japanese songs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/playlist",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Playlists",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{myToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/api/playlist",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Playlist",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{myToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/api/playlist/65577eae7e5cce36a0667f8b",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"playlist",
+								"65577eae7e5cce36a0667f8b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Playlist",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{myToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Japanese Songsss\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/playlist/6556c01cc11391418bc83bd4",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"playlist",
+								"6556c01cc11391418bc83bd4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Playlist",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{myToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/api/playlist/65577eae7e5cce36a0667f8b",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"playlist",
+								"65577eae7e5cce36a0667f8b"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"avatar\": \"https://media.cnnchile.com/sites/4/2022/05/220414231728-01-giant-panda-call-to-earth-super-169-800x400.jpg\",\n  \"email\": \"test@test.com\",\n  \"username\": \"tester\",\n  \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/auth/register",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"test@test.com\",\r\n  \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/auth/login",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "music",
+			"item": [
+				{
+					"name": "List Musics",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{myToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/musics/655779c5d77e2f9dd81d10be",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"musics",
+								"655779c5d77e2f9dd81d10be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Music",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{myToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/musics/655779c5d77e2f9dd81d10be/655781ee7e5cce36a0667fb3",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"musics",
+								"655779c5d77e2f9dd81d10be",
+								"655781ee7e5cce36a0667fb3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Music",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{myToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"2\",\r\n    \"artist\":\"TORi\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/musics/655779c5d77e2f9dd81d10be",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"musics",
+								"655779c5d77e2f9dd81d10be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Music",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{myToken}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/musics/655779c5d77e2f9dd81d10be/65577ba7ce47c9909c79edd3",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"musics",
+								"655779c5d77e2f9dd81d10be",
+								"65577ba7ce47c9909c79edd3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Music",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{myToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/musics/655779c5d77e2f9dd81d10be/655781ee7e5cce36a0667fb3",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"musics",
+								"655779c5d77e2f9dd81d10be",
+								"655781ee7e5cce36a0667fb3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
