@@ -43,9 +43,9 @@ export const ctrlListMusics = async (req, res) => {
   }
 
   try {
-    const musics = await MusicModel.find({ playlist: playlistId }, ['-__v']).populate(
-      'playlist', ['-musics', '-author', '-__v']
-    );
+    const musics = await MusicModel.find({ playlist: playlistId }, [
+      '-__v',
+    ]).populate('playlist', ['-musics', '-author', '-__v']);
 
     res.status(200).json(musics);
   } catch (error) {
@@ -122,7 +122,7 @@ export const ctrlDeleteMusic = async (req, res) => {
       { $pull: { musics: musicId } }
     );
 
-    res.status(204).json();
+    res.status(200).json();
   } catch (error) {
     res.status(500).json({ error: "Couldn't delete music" });
   }

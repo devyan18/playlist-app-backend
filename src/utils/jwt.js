@@ -6,7 +6,6 @@ export const createJWT = async ({ userId }) => {
     jwt.sign(
       { userId },
       config.jwt_secret,
-      { expiresIn: '1h' },
       (err, token) => {
         if (err) rej(err);
         res(token);
